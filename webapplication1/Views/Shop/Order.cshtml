@@ -1,0 +1,15 @@
+﻿
+@model IEnumerable<WebApplication1.Models.Item>
+
+@{
+    ViewBag.Title = "Order";
+}
+
+<h2>Order confirmation:</h2>
+
+<h3>Value of your order:  @Session["endprice"] zł</h3>
+<b>How would you like to receive your package? </b>
+@Html.DropDownList("DeliveryMethod", new SelectList(new[] { "Courier", "Mail", "Personal Collection" }))
+@Html.ActionLink("Finish", "Finish", "Items") 
+
+

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<WebApplication1.Models.Item>
+
+@{
+    ViewBag.Title = "ItemList";
+}
+
+<h2>ItemList</h2>
+
+<p>
+    @Html.ActionLink("Add New", "AddNewItem")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price) zł
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditItem", new { id = item.ItemID }) |
+                @Html.ActionLink("Delete", "DeleteItem", new { id = item.ItemID })
+            </td>
+        </tr>
+    }
+
+</table>
+@Html.ActionLink("Back", "Panel")
